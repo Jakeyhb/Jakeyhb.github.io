@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="前端面试：">
+<meta name="description" content="前端面试 2020，6.28     react父子组件的传值？子组件设置ref？ 123456789101112父组件传子组件：	父传值：&lt;子的标签 value&#x3D;&amp;#123;&#39;aaa&#39;&amp;#125; index&#x3D;&amp;#123;&#39;bbb&#39;&amp;#125;&gt;&lt;&#x2F;子的标签&gt;    子接值：&lt;li key&#x3D;&amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端面试">
 <meta property="og:url" content="http://yoursite.com/2020/06/28/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/index.html">
 <meta property="og:site_name" content="Jakeby">
-<meta property="og:description" content="前端面试：">
+<meta property="og:description" content="前端面试 2020，6.28     react父子组件的传值？子组件设置ref？ 123456789101112父组件传子组件：	父传值：&lt;子的标签 value&#x3D;&amp;#123;&#39;aaa&#39;&amp;#125; index&#x3D;&amp;#123;&#39;bbb&#39;&amp;#125;&gt;&lt;&#x2F;子的标签&gt;    子接值：&lt;li key&#x3D;&amp;#">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="d:%5CFront-project%5Chexo%5Csource%5Cimages%5Cwork%5C1.png">
 <meta property="article:published_time" content="2020-06-28T00:30:34.000Z">
-<meta property="article:modified_time" content="2020-06-28T00:31:46.176Z">
+<meta property="article:modified_time" content="2020-06-28T01:10:22.901Z">
 <meta property="article:author" content="Jakeby">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:%5CFront-project%5Chexo%5Csource%5Cimages%5Cwork%5C1.png">
 
 
 
@@ -362,7 +364,33 @@
       
 
       
-        <p>前端面试：</p>
+        <h1 id="前端面试"><a href="#前端面试" class="headerlink" title="前端面试"></a>前端面试</h1><blockquote>
+<p><strong>2020，6.28</strong>  </p>
+</blockquote>
+<ol>
+<li><p>react父子组件的传值？子组件设置ref？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">父组件传子组件：</span><br><span class="line">	父传值：&lt;子的标签 value&#x3D;&#123;&#39;aaa&#39;&#125; index&#x3D;&#123;&#39;bbb&#39;&#125;&gt;&lt;&#x2F;子的标签&gt;</span><br><span class="line">    子接值：&lt;li key&#x3D;&#123;this.props.index&#125;&gt;&#123;this.props.value&#125;&lt;&#x2F;li&gt;</span><br><span class="line">子组件传值到父组件：</span><br><span class="line">	在父组件调用子组件的时候，给子组件设置一个属性，属性的值对应的是一个函数</span><br><span class="line">    子组件中需要传值的时候就props调用该函数，并且将传的值作为参数传入，</span><br><span class="line">    在父组件中，调用函数被执行，通过参数列表得到子组件传入的值</span><br><span class="line">设置ref：</span><br><span class="line"></span><br><span class="line">    react.CreateRef()</span><br><span class="line">    通过在class中使用React.createRef()方法创建一些变量，可以将这些变量绑定到标签的ref中</span><br><span class="line">    那么该变量的current则指向绑定的标签dom</span><br></pre></td></tr></table></figure>
+
+<p><img src="D:%5CFront-project%5Chexo%5Csource%5Cimages%5Cwork%5C1.png" alt="ref"></p>
+</li>
+<li><p>在父组件中获得子组件的属性？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p>非受控组件怎么设置默认值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">非受控组件：默认值：defaultValue</span><br><span class="line"></span><br><span class="line">&#123;<span class="comment">/* 受控组件 */</span>&#125;</span><br><span class="line"> 受控组件就是我们的值可以控制，比如数据的双向绑定；</span><br><span class="line"> &lt;input type=<span class="string">"text"</span> value=&#123;<span class="keyword">this</span>.state.inputVal&#125; onChange=&#123;<span class="keyword">this</span>.changeAction.bind(<span class="keyword">this</span>)&#125; /&gt;</span><br><span class="line">  &#123;<span class="comment">/* 非受控组件 */</span>&#125;</span><br><span class="line">  非受控组件就是值没办法改变，设置的值是多少就是多少，</span><br><span class="line">  不会受到输入的改变而改变</span><br><span class="line"> &#123; &lt;input type=<span class="string">"text"</span> ref=<span class="string">"in"</span> defaultValue=&#123;<span class="keyword">this</span>.state.inputVal&#125;/&gt; &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li></li>
+</ol>
 
       
     </div>
@@ -453,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -546,6 +583,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前端面试"><span class="nav-number">1.</span> <span class="nav-text">前端面试</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
