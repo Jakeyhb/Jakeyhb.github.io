@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/3/28/1626b1e8eba68e1c">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/3/28/1626b20dfc4fcd26">
 <meta property="article:published_time" content="2020-06-28T00:30:34.000Z">
-<meta property="article:modified_time" content="2020-06-29T01:12:31.478Z">
+<meta property="article:modified_time" content="2020-06-30T05:51:29.964Z">
 <meta property="article:author" content="Jakeby">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
@@ -556,6 +556,30 @@
 </li>
 </ol>
 <ol start="9">
+<li><p>作用域链和作用域</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的</span><br><span class="line">简单的说，作用域就是变量与函数的可访问范围，即作用域控制着变量与函数的可见性和生命周期</span><br><span class="line"></span><br><span class="line">扩展：JavaScript原型，原型链 ? 有什么特点？</span><br><span class="line">每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时</span><br><span class="line"></span><br><span class="line">如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念</span><br><span class="line"></span><br><span class="line">关系：instance.constructor.prototype &#x3D; instance.__proto__</span><br><span class="line"></span><br><span class="line">特点：</span><br><span class="line"></span><br><span class="line">JavaScript对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原型时，与之相关的对象也会继承这一改变</span><br><span class="line">当我们需要一个属性的时，Javascript引擎会先看当前对象中是否有这个属性， 如果没有的</span><br><span class="line"></span><br><span class="line">就会查找他的Prototype对象是否有这个属性，如此递推下去，一直检索到 Object 内建对象</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="10">
+<li><p>react中状态提升：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">主要解决是数据共享的问题：</span><br><span class="line">就是如果两个子组件需要利用到对方的状态的话，那么这个时候我们就需要使用到状态提升，具体的做法就是把两个子组件的状态写到它们的父组件当中，然后父组件把状态传递到子组件的props中去，这样子组件也相当于有状态。父组件相当于是数据源，这样的话，子组件是没有控制权的，</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="11">
+<li><p>react中为什么要使用immutable</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">因为在react中，react的生命周期中的setState()之后的shouldComponentUpdate()阶段默认返回true，所以会造成本组件和子组件的多余的render，重新生成virtual dom，并进行virtual dom diff，所以解决办法是我们在本组件或者子组件中的shouldComponentUpdate()函数中比较，当不需要render时，不render。</span><br><span class="line"></span><br><span class="line">当state中的值是对象时，我们必须使用深拷贝和深比较！</span><br><span class="line"></span><br><span class="line">如果不进行深拷贝后再setState，会造成this.state和nextState指向同一个引用，所以shouldComponentUpdate()返回值一定是false，造成state值改了，而组件未渲染（这里不管shouldComponentUpdate中使用的是深比较还是浅比较）。所以必须深拷贝。</span><br><span class="line"></span><br><span class="line">如果不在shouldComponentUpdate中进行深比较，会造成即使state中的对象值没有改变，因为是不同的对象，而在shouldComponentUpdate返回true，造成不必要的渲染。</span><br><span class="line"></span><br><span class="line">所以只能是深拷贝和深比较。</span><br><span class="line"></span><br><span class="line">而深拷贝和深比较都浪费浏览器的性能，所以immutable登场了。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">与React搭配使用，关键点是shouldComponentUpdate</span><br><span class="line">熟悉 React 的都知道，React 做性能优化时有一个避免重复渲染的大招，就是使用 shouldComponentUpdate()，但它默认返回 true，即始终会执行 render() 方法，然后做 Virtual DOM 比较，并得出是否需要做真实 DOM 更新，尽管React的虚拟算法复杂度已经有了很多优化，但是在大规模组件更新时，依然会是个不必要的损耗。会带来很多无必要的渲染并成为性能瓶颈。</span><br><span class="line">我们常用的Purecomponent的秘密其实是在shouldComponentUpdate中做了前后state和props的浅比较，如果不小心组件props的引用问题，这里会导致出现很多Bug。</span><br><span class="line">虽然第一层数据没变，但引用变了，就会造成虚拟 DOM 计算的浪费。</span><br><span class="line">第一层数据改变，但引用没变，会造成不渲染，所以需要很小心的操作数据。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Object.assign可以实现不可变数据,唯一的就是性能问题</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="12">
 <li></li>
 </ol>
 
