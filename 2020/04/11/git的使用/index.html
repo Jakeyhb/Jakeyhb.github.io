@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/jakeby.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Git," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jakeby" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="git代码托管本地代码创建基本结构推送到远程仓库; 1 . 配置全局环境 : 仅需配置一次就可以了;  配置指令 :git config --global user.name &quot;你自己的用户名&quot;git config --global user.email &quot;你自己的qq邮箱&quot; 如何查看配置是否成功 : C:&#x2F;user&#x2F;用户名&#x2F;.gitconfig 配置文件，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git的使用">
+<meta property="og:url" content="http://yoursite.com/2020/04/11/git%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Jakeby">
+<meta property="og:description" content="git代码托管本地代码创建基本结构推送到远程仓库; 1 . 配置全局环境 : 仅需配置一次就可以了;  配置指令 :git config --global user.name &quot;你自己的用户名&quot;git config --global user.email &quot;你自己的qq邮箱&quot; 如何查看配置是否成功 : C:&#x2F;user&#x2F;用户名&#x2F;.gitconfig 配置文件，">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-11T04:46:48.000Z">
+<meta property="article:modified_time" content="2020-04-28T11:51:52.963Z">
+<meta property="article:author" content="Jakeby">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/11/git的使用/"/>
+
+
+
+
+
+  <title>git的使用 | Jakeby</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?379c22aafb76dcc3b79c4aed1adb3c68";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jakeby</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/11/git%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jakeby">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jakeby">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">git的使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-11T12:46:48+08:00">
+                2020-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+	
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="代码托管"><a href="#代码托管" class="headerlink" title="代码托管"></a>代码托管</h2><h3 id="本地代码创建基本结构推送到远程仓库"><a href="#本地代码创建基本结构推送到远程仓库" class="headerlink" title="本地代码创建基本结构推送到远程仓库;"></a>本地代码创建基本结构推送到远程仓库;</h3><ul>
+<li>1 . 配置全局环境 : 仅需配置一次就可以了;</li>
+</ul>
+<p>配置指令 :<br><code>git config --global user.name &quot;你自己的用户名&quot;</code><br><code>git config --global user.email &quot;你自己的qq邮箱&quot;</code></p>
+<p>如何查看配置是否成功 : C:/user/用户名/.gitconfig 配置文件，永久存在于你的电脑上;</p>
+<ul>
+<li><ol start="2">
+<li><p>建立本地仓库 : </p>
+<p>代码存在计算机的某个位置<br>git仓库文件夹叫做 .git 隐藏文件夹  </p>
+<p>指令 : <code>git init</code>;</p>
+<p>提示 : Initialized empty Git repository in 路径  初始化了一个空的仓库在对应的路径上;</p>
+</li>
+</ol>
+</li>
+<li><ol start="3">
+<li><p>git指令 : </p>
+<ol start="4">
+<li><code>git add -A</code>  把你的代码放到缓存区之中;<br>-A : 所有文件;</li>
+<li><code>git commit -m</code>  把你的代码放到<strong>本地</strong>仓库之中。<br>-m : 标明每次提交都要有注释。  注释里一定说明白你改了哪些东西; </li>
+<li><code>git remote add origin https://gitee.com/NZG201/G201-git.git</code> 给当前的源(网上的仓库路径取个别名，叫做 origin , 以后使用的时候 origin 就等于 <a href="https://gitee.com/NZG201/G201-git.git" target="_blank" rel="noopener">https://gitee.com/NZG201/G201-git.git</a> ) 一个仓库只需要配置一次;</li>
+<li><code>git push -u origin master</code> </li>
+</ol>
+<p>git push : 表示把本地仓库的内容推送到线上仓库。<br>-u       : 表示所有的更新;<br>origin   : 之前设置的原路径变量;<br>master   : 分支;</p>
+</li>
+</ol>
+</li>
+</ul>
+<p>正确顺序是 : 1. 配置用户名邮箱 2. 创建初始化仓库(一个项目初始化一个仓库即可); 3. git提交指令;</p>
+<h3 id="远程仓库代码下载到本地并进行更改"><a href="#远程仓库代码下载到本地并进行更改" class="headerlink" title="远程仓库代码下载到本地并进行更改"></a>远程仓库代码下载到本地并进行更改</h3><ol>
+<li><code>git clone 仓库路径</code>  : 适用场景，没有仓库别人已经写了一部分代码了;</li>
+<li><code>git pull  同步仓库</code>  : 你的本地存在部分仓库之中的代码，想要继续去进行更新;</li>
+<li><code>git fetch 拉取仓库</code>  : 本地仓库 .git 同步线上的仓库;</li>
+</ol>
+<h3 id="远程端的代码发生改变了，和我本地的代码不一致，我应该怎么办呐"><a href="#远程端的代码发生改变了，和我本地的代码不一致，我应该怎么办呐" class="headerlink" title="远程端的代码发生改变了，和我本地的代码不一致，我应该怎么办呐?"></a>远程端的代码发生改变了，和我本地的代码不一致，我应该怎么办呐?</h3><ol>
+<li>提交代码到本地仓库;       git add , git commit </li>
+<li>线上代码同步到本地仓库;   git pull<br>合并代码 : vscode 工具; 肉眼进行合并;</li>
+<li>重新修改之后进行提交。    git add , git commit , git push …</li>
+</ol>
+<h2 id="作为仓库的拉取者-你的操作会对仓库有怎样的影响那"><a href="#作为仓库的拉取者-你的操作会对仓库有怎样的影响那" class="headerlink" title="作为仓库的拉取者 你的操作会对仓库有怎样的影响那?"></a>作为仓库的拉取者 你的操作会对仓库有怎样的影响那?</h2><blockquote>
+<p>作为克隆仓库的开发人员,我用clone创建了仓库。<br>我在仓库里面的代码进行了部分的更新。<br>我又把代码提交到远程仓库。</p>
+</blockquote>
+<p>clone的仓库有哪些东西 : </p>
+<pre><code>1. 仓库里面所有的代码。
+2. 仓库里面所有的版本。
+3. 仓库里面的源 ;</code></pre><h3 id="务必记住clone之后，一定要进入到克隆的文件夹里面去操作项目，别在外面操作"><a href="#务必记住clone之后，一定要进入到克隆的文件夹里面去操作项目，别在外面操作" class="headerlink" title="务必记住clone之后，一定要进入到克隆的文件夹里面去操作项目，别在外面操作;"></a>务必记住clone之后，一定要进入到克隆的文件夹里面去操作项目，别在外面操作;</h3><p>你好</p>
+
+      
+    </div>
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/10/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="next" title="前端工程化">
+                <i class="fa fa-chevron-left"></i> 前端工程化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/11/%E4%BA%B2%E5%AF%86%E5%85%B3%E7%B3%BB%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="prev" title="亲密关系读书笔记">
+                亲密关系读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.jpg"
+                alt="Jakeby" />
+            
+              <p class="site-author-name" itemprop="name">Jakeby</p>
+              <p class="site-description motion-element" itemprop="description">永远年轻，永远热泪盈眶</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.weibo.com/5405097475/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.poco.cn/user/id200751015" target="_blank" title="摄影">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>摄影</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jakeyhb" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="jakeby@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git"><span class="nav-number">1.</span> <span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码托管"><span class="nav-number">1.1.</span> <span class="nav-text">代码托管</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#本地代码创建基本结构推送到远程仓库"><span class="nav-number">1.1.1.</span> <span class="nav-text">本地代码创建基本结构推送到远程仓库;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程仓库代码下载到本地并进行更改"><span class="nav-number">1.1.2.</span> <span class="nav-text">远程仓库代码下载到本地并进行更改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程端的代码发生改变了，和我本地的代码不一致，我应该怎么办呐"><span class="nav-number">1.1.3.</span> <span class="nav-text">远程端的代码发生改变了，和我本地的代码不一致，我应该怎么办呐?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作为仓库的拉取者-你的操作会对仓库有怎样的影响那"><span class="nav-number">1.2.</span> <span class="nav-text">作为仓库的拉取者 你的操作会对仓库有怎样的影响那?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#务必记住clone之后，一定要进入到克隆的文件夹里面去操作项目，别在外面操作"><span class="nav-number">1.2.1.</span> <span class="nav-text">务必记住clone之后，一定要进入到克隆的文件夹里面去操作项目，别在外面操作;</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jakeby</span>
+
+  
+</div>
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

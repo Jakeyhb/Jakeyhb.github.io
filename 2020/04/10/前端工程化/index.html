@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/jakeby.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jakeby" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前端工程化为啥需要工程化- 就是因为程序员比较懒。 - 使用工具替我们完成某些工作。代码的优化， 工程的优化- 为了确保项目的可扩展性，健壮性，我们需要有工程化的思想构建我们的项目; - 1. 开发环境 : 主要以演示为主， 代码编程过程之中随时可以查看。              :  服务器代理功能 - 2. 生产环境 : 主要以产出代码为主，我们要产出压缩好的，兼容性良好的代码。  总结 :">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端工程化">
+<meta property="og:url" content="http://yoursite.com/2020/04/10/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/index.html">
+<meta property="og:site_name" content="Jakeby">
+<meta property="og:description" content="前端工程化为啥需要工程化- 就是因为程序员比较懒。 - 使用工具替我们完成某些工作。代码的优化， 工程的优化- 为了确保项目的可扩展性，健壮性，我们需要有工程化的思想构建我们的项目; - 1. 开发环境 : 主要以演示为主， 代码编程过程之中随时可以查看。              :  服务器代理功能 - 2. 生产环境 : 主要以产出代码为主，我们要产出压缩好的，兼容性良好的代码。  总结 :">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-09T19:20:05.000Z">
+<meta property="article:modified_time" content="2020-04-10T09:01:52.247Z">
+<meta property="article:author" content="Jakeby">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/10/前端工程化/"/>
+
+
+
+
+
+  <title>前端工程化 | Jakeby</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?379c22aafb76dcc3b79c4aed1adb3c68";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jakeby</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/10/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jakeby">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jakeby">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端工程化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-10T03:20:05+08:00">
+                2020-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+	
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h2><h2 id="为啥需要工程化"><a href="#为啥需要工程化" class="headerlink" title="为啥需要工程化"></a>为啥需要工程化</h2><pre><code>- 就是因为程序员比较懒。
+- 使用工具替我们完成某些工作。</code></pre><h2 id="代码的优化，-工程的优化"><a href="#代码的优化，-工程的优化" class="headerlink" title="代码的优化， 工程的优化"></a>代码的优化， 工程的优化</h2><pre><code>- 为了确保项目的可扩展性，健壮性，我们需要有工程化的思想构建我们的项目;
+- 1. 开发环境 : 主要以演示为主， 代码编程过程之中随时可以查看。
+             :  服务器代理功能
+- 2. 生产环境 : 主要以产出代码为主，我们要产出压缩好的，兼容性良好的代码。
+
+总结 : 其实工程化就是让我们在开发程序的时候可以有更明确的功能分类，通过工程化工具去构建，去完善，最终变成我们的优秀的产出物。</code></pre><h2 id="工程化工具"><a href="#工程化工具" class="headerlink" title="工程化工具"></a>工程化工具</h2><pre><code>gulp    小众类别-简单
+webpack 目前主流基于webpack的工程化构建 
+...</code></pre><h2 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h2><pre><code>基于工作流的工程化构建工具。</code></pre><h2 id="环境构建"><a href="#环境构建" class="headerlink" title="环境构建"></a>环境构建</h2><ol>
+<li><p>基本环境安装 : gulp </p>
+<p>全局gulp : 可以在cmd命令行之中使用gulp指令; (一台电脑安装一次即可)</p>
+<p>安装指令 : <code>npm install gulp-cli -g</code></p>
+<p>局部gulp : 给gulp提供核心功能的支持; (每个项目都需要重新安装)</p>
+<p>安装指令 : <code>npm install gulp --save-dev</code></p>
+</li>
+<li><p>基本环境测试 : </p>
+<p>测试 : <code>gulp -v</code></p>
+</li>
+</ol>
+<blockquote>
+<p>CLI version: 2.2.0<br>Local version: 4.0.2</p>
+</blockquote>
+<h2 id="配置VSCode命令行"><a href="#配置VSCode命令行" class="headerlink" title="配置VSCode命令行"></a>配置VSCode命令行</h2><ol>
+<li><p>呼出 : <code>ctrl + ~</code></p>
+</li>
+<li><p>统一命令行的指令工具 : <code>CMD</code></p>
+<ol>
+<li>找到cmd的根目录 <code>C:\WINDOWS\system32\cmd.exe</code></li>
+<li>在设置之中找到终端 填写路径;</li>
+</ol>
+</li>
+</ol>
+<h2 id="工程化目录结构"><a href="#工程化目录结构" class="headerlink" title="工程化目录结构"></a>工程化目录结构</h2><ul>
+<li>src : 存放我们开发之中的代码;</li>
+</ul>
+<ol>
+<li>构建项目说明书 ; <code>npm init -y</code></li>
+</ol>
+<p>如果下载失败 :<br>    1. 换个热点重新下载;<br>    2. 执行指令 <code>npm cache clear --force</code> , 重复1;<br>    3. 如果2不生效 , 找到npm的缓存文件删除掉;<br>    在路径 <code>C:\Users\Administrator</code> 下面找到npmrc | nrmrc 直接删除 , 再从1 开始重新尝试;<br>    4. 如果2，3都不生效 , 找到npm全局环境安装目录， 删除掉所有的内容 。 那个装不上，就删除哪个就可以了。<br>    5. 2,3,4 都不生效 需要重新执行4 ，卸载nodejs =&gt; 重启 =&gt; 安装nodejs =&gt; 重启 =&gt; 重新安装<br>    6. 1~5 都不好用, 检查源是否存在，是否被防火墙阻拦。<br>    7. 检查其他模块是否可以下载<br>    8. 实在不行重装个系统吧.</p>
+<h2 id="gulp基本指令"><a href="#gulp基本指令" class="headerlink" title="gulp基本指令"></a>gulp基本指令</h2><ul>
+<li><ol>
+<li><p>把src之中 ， html 文件夹之下的index.html 转存到 dist文件夹下 </p>
+<p><code>gulp.task(&quot;指令名称&quot; , 指令回调函数)</code><br><code>gulp.src([数组之中写入文件路径])</code><br><code>.pipe(操作工具)</code><br><code>gulp.dest(转存路径)</code><br><code>gulp.watch(监听路径,指令指令)</code><br><code>series([&quot;指令1&quot;,&quot;指令2&quot;])</code>    上一个指令执行完，才会执行下一个指令;<br><code>parallel([&quot;指令1&quot;,&quot;指令2&quot;])</code>  多个指令同时执行</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="使用第三方gulp插件"><a href="#使用第三方gulp插件" class="headerlink" title="使用第三方gulp插件"></a>使用第三方gulp插件</h2><ul>
+<li><p>gulp-connect </p>
+<ol>
+<li>安装 : <code>npm install --save-dev gulp-connect</code></li>
+<li>在 gulpfile.js 之中引入插件;</li>
+<li>插件的使用配置，有些插件的语法是gulp3语法，会和现在gulp4语法存在冲突，所以我们需要根据实际情况进行一定的更新;</li>
+</ol>
+</li>
+<li><p>目标 : 让nodejs服务器可以进行接口代理。</p>
+</li>
+<li><p>http-proxy-middleware</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">middleware : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 返回值必须是数组;</span></span><br><span class="line">    <span class="comment">// 默认访问的路径 : http://localhost/pxx</span></span><br><span class="line">    <span class="comment">// 被处理之后的路径 : 代理路径/pxx;</span></span><br><span class="line">    <span class="comment">// 重写路径 : /pxx =&gt; ""; 代理路径</span></span><br><span class="line">    <span class="keyword">return</span> [ </span><br><span class="line">        proxy( <span class="string">"/pxx"</span> ,  &#123;</span><br><span class="line">            target : <span class="string">"https://apiv2.pinduoduo.com/api/gindex/subject/limited/goods"</span>,</span><br><span class="line">            changeOrigin : <span class="literal">true</span>,</span><br><span class="line">            pathRewrite : &#123;</span><br><span class="line">                  <span class="string">"/pxx"</span>: <span class="string">""</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;),</span><br><span class="line">        proxy(<span class="string">"/dt"</span>, &#123;</span><br><span class="line">            target :<span class="string">" https://www.duitang.com/napi/blog/list/by_filter_id/"</span>,</span><br><span class="line">            changeOrigin : <span class="literal">true</span>,</span><br><span class="line">            pathRewrite : &#123;</span><br><span class="line">                <span class="string">"/dt"</span>: <span class="string">""</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="拆分环境"><a href="#拆分环境" class="headerlink" title="拆分环境"></a>拆分环境</h2><ol>
+<li>开发环境 : 需要立即看到代码效果;</li>
+<li>生产环境 : 要最优质的代码; 代码压缩，混淆，缓存处理……..</li>
+</ol>
+<ul>
+<li><p>实际操作 </p>
+<ul>
+<li><ol>
+<li><p>拆分两个gulp配置文件 : gulpfile.dev.js  gulpfile.build.js</p>
+<ul>
+<li>gulpfile.dev.js   =&gt; 开发环境 : 配置了服务器，配置了代理，配置转存….</li>
+<li>gulpfile.build.js =&gt; 生产环境 : 代码压缩，代码转义…..</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><ol start="2">
+<li><p>区分用户输入的指令，决定加载哪一个配置文件;</p>
+<p><code>process.argv</code> 通过这个属性进行获取;</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="gulp-dev"><a href="#gulp-dev" class="headerlink" title="gulp dev"></a>gulp dev</h2><pre><code>1. 让我们根据 process.argv 判定应该加载哪一个配置文件;
+2. gulp的指令执行;</code></pre><h2 id="gulp-build"><a href="#gulp-build" class="headerlink" title="gulp build"></a>gulp build</h2><pre><code>1. js 代码的转义 ES6 =&gt; ES5  
+2. js , css , html , 代码压缩 
+3. 给 js , css 添加版本后缀, 使用缓存的同时可以识别新的版本;
+4. 图片优化</code></pre><ul>
+<li>插件构成 : <ul>
+<li>gulp-babel  安装参照npmjs.org</li>
+<li>gulp-uglify 代码压缩; </li>
+</ul>
+</li>
+</ul>
+<p>无论任何时候，你修改的代码只有src里面的代码，不会修改dist里面的代码，dist里面的代码都是工程化生成的;</p>
+
+      
+    </div>
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/11/git%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="git的使用">
+                git的使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.jpg"
+                alt="Jakeby" />
+            
+              <p class="site-author-name" itemprop="name">Jakeby</p>
+              <p class="site-description motion-element" itemprop="description">永远年轻，永远热泪盈眶</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.weibo.com/5405097475/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.poco.cn/user/id200751015" target="_blank" title="摄影">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>摄影</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jakeyhb" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="jakeby@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端工程化"><span class="nav-number">1.</span> <span class="nav-text">前端工程化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为啥需要工程化"><span class="nav-number">2.</span> <span class="nav-text">为啥需要工程化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码的优化，-工程的优化"><span class="nav-number">3.</span> <span class="nav-text">代码的优化， 工程的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工程化工具"><span class="nav-number">4.</span> <span class="nav-text">工程化工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp"><span class="nav-number">5.</span> <span class="nav-text">gulp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境构建"><span class="nav-number">6.</span> <span class="nav-text">环境构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置VSCode命令行"><span class="nav-number">7.</span> <span class="nav-text">配置VSCode命令行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工程化目录结构"><span class="nav-number">8.</span> <span class="nav-text">工程化目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp基本指令"><span class="nav-number">9.</span> <span class="nav-text">gulp基本指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用第三方gulp插件"><span class="nav-number">10.</span> <span class="nav-text">使用第三方gulp插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拆分环境"><span class="nav-number">11.</span> <span class="nav-text">拆分环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-dev"><span class="nav-number">12.</span> <span class="nav-text">gulp dev</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gulp-build"><span class="nav-number">13.</span> <span class="nav-text">gulp build</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jakeby</span>
+
+  
+</div>
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

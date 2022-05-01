@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/jakeby.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jakeby" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前端面试题总结：jakeby  2020，6.28    react 相关 react父子组件的传值？子组件设置ref？ 123456789101112父组件传子组件：	父传值：&lt;子的标签 value&#x3D;&amp;#123;&#39;aaa&#39;&amp;#125; index&#x3D;&amp;#123;&#39;bbb&#39;&amp;#125;&gt;&lt;&#x2F;子的标签&gt;    子接值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/index.html">
+<meta property="og:site_name" content="Jakeby">
+<meta property="og:description" content="前端面试题总结：jakeby  2020，6.28    react 相关 react父子组件的传值？子组件设置ref？ 123456789101112父组件传子组件：	父传值：&lt;子的标签 value&#x3D;&amp;#123;&#39;aaa&#39;&amp;#125; index&#x3D;&amp;#123;&#39;bbb&#39;&amp;#125;&gt;&lt;&#x2F;子的标签&gt;    子接值">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/06/28/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/..%5Cimages%5Cwork%5C1.png">
+<meta property="og:image" content="http://jakeby.top/images/work/2.png">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/3/28/1626b1e8eba68e1c">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/3/28/1626b20dfc4fcd26">
+<meta property="article:published_time" content="2020-06-28T00:30:34.000Z">
+<meta property="article:modified_time" content="2020-07-07T00:55:49.228Z">
+<meta property="article:author" content="Jakeby">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/28/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/..%5Cimages%5Cwork%5C1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/06/28/前端面试/"/>
+
+
+
+
+
+  <title>前端面试 | Jakeby</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?379c22aafb76dcc3b79c4aed1adb3c68";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jakeby</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jakeby">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jakeby">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端面试</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-28T08:30:34+08:00">
+                2020-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+	
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前端面试题总结：jakeby</p>
+<blockquote>
+<p><strong>2020，6.28</strong>  </p>
+</blockquote>
+<h1 id="react-相关"><a href="#react-相关" class="headerlink" title="react 相关"></a>react 相关</h1><ol>
+<li><p><strong>react父子组件的传值？子组件设置ref？</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">父组件传子组件：</span><br><span class="line">	父传值：&lt;子的标签 value&#x3D;&#123;&#39;aaa&#39;&#125; index&#x3D;&#123;&#39;bbb&#39;&#125;&gt;&lt;&#x2F;子的标签&gt;</span><br><span class="line">    子接值：&lt;li key&#x3D;&#123;this.props.index&#125;&gt;&#123;this.props.value&#125;&lt;&#x2F;li&gt;</span><br><span class="line">子组件传值到父组件：</span><br><span class="line">	在父组件调用子组件的时候，给子组件设置一个属性，属性的值对应的是一个函数</span><br><span class="line">    子组件中需要传值的时候就props调用该函数，并且将传的值作为参数传入，</span><br><span class="line">    在父组件中，调用函数被执行，通过参数列表得到子组件传入的值</span><br><span class="line">设置ref：</span><br><span class="line"></span><br><span class="line">    react.CreateRef()</span><br><span class="line">    通过在class中使用React.createRef()方法创建一些变量，可以将这些变量绑定到标签的ref中</span><br><span class="line">    那么该变量的current则指向绑定的标签dom</span><br></pre></td></tr></table></figure>
+
+<p><img src="..%5Cimages%5Cwork%5C1.png" alt="ref"></p>
+</li>
+<li><p><strong>在 React 中，refs 的作用是什么</strong></p>
+<blockquote>
+<p>Refs 可以用于获取一个 DOM 节点或者 React 组件的引用。何时使用 refs 的好的示例有管理焦点/文本选择，触发命令动画，或者和第三方 DOM 库集成。你应该避免使用 String 类型的 Refs 和内联的 ref 回调。Refs 回调是 React 所推荐的。</p>
+</blockquote>
+</li>
+<li><p>在父组件中获得子组件的属性？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p><strong>非受控组件怎么设置默认值</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">非受控组件：默认值：defaultValue</span><br><span class="line"></span><br><span class="line">&#123;<span class="comment">/* 受控组件 */</span>&#125;</span><br><span class="line"> 受控组件就是我们的值可以控制，比如数据的双向绑定；</span><br><span class="line"> &lt;input type=<span class="string">"text"</span> value=&#123;<span class="keyword">this</span>.state.inputVal&#125; onChange=&#123;<span class="keyword">this</span>.changeAction.bind(<span class="keyword">this</span>)&#125; /&gt;</span><br><span class="line">  &#123;<span class="comment">/* 非受控组件 */</span>&#125;</span><br><span class="line">  非受控组件就是值没办法改变，设置的值是多少就是多少，</span><br><span class="line">  不会受到输入的改变而改变</span><br><span class="line"> &#123; &lt;input type=<span class="string">"text"</span> ref=<span class="string">"in"</span> defaultValue=&#123;<span class="keyword">this</span>.state.inputVal&#125;/&gt; &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ol>
+<blockquote>
+<p>2020，6.29</p>
+</blockquote>
+<ol>
+<li><p><strong>react16.0之后的新增的特性:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">友情链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_18283943&#x2F;article&#x2F;details&#x2F;106186916</span><br><span class="line">hooks</span><br><span class="line">Fragment(v16.0) &amp; StrictMode(v16.3)</span><br><span class="line">与 Fragment 相同，并不会被渲染成真实 DOM。</span><br><span class="line">context()。。。。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>react中父子组件之间的传值；</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">父子组件传值：父组件通过初始的state   子组件通过<span class="keyword">this</span>.props</span><br><span class="line">子组件向父组件传值需要绑定一个事件，</span><br><span class="line">然后事件是父组件传递过来的<span class="keyword">this</span>.props.event来进行值的更替。</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="3">
+<li><p><strong>vue组件中data的声明为什么是一个函数；</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我们知道作用域分为全局作用域、局部作用域（函数作用域）、块级作用域（es6）。</span><br><span class="line">组件中的data设置为一个函数，相当于每个组件实例都有自己的作用域，那么局部作用域中的数据改变是不会影响其他作用域的，也就是说每个组件相互独立，互不影响。这样就保证了组件的复用性和灵活性。</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p><strong>react中函数可以有自己状态吗？useState  如何使用；</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">函数组件没有实例，也没有状态。函数组件使用状态需要使用 useState 钩子</span><br><span class="line">原理：</span><br><span class="line">写一个 useState 方法，会返回当前状态的属性和设置状态的方法，每当状态改变之后，方法中会调用刷新视图的 render 方法。</span><br><span class="line">再次尝试之前的代码，依然可以正常使用，但是当多个 useState 存在的时候就有问题了，只能变一个状态了。</span><br><span class="line">现在我们需要优化我们的 Hooks ，解决多个 useState 同时使用的问题，当多个状态存在的时候，我们需要使用数组保存状态</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="5">
+<li><h2 id="react中的生命周期："><a href="#react中的生命周期：" class="headerlink" title="react中的生命周期："></a>react中的生命周期：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">react生命周期分为初始化阶段、运行阶段、销毁阶段。</span><br><span class="line">(1) 初始化阶段：</span><br><span class="line"></span><br><span class="line">componentWillMount：实例挂载之前</span><br><span class="line">Render：渲染组件</span><br><span class="line">componentDidMount：实例挂载完成。一般在这个函数中与后台进行初始化数据交互。</span><br><span class="line"></span><br><span class="line">(2)运行阶段：</span><br><span class="line"></span><br><span class="line">componentWillReceiveProps：父组件改变时调用。</span><br><span class="line">sholudComponentUpdate：主要是用来手动阻止组件渲染，一般在这个函数中做组件的性能优化。</span><br><span class="line">componentWillUpdate：组件数据更新前调用</span><br><span class="line">componentDidUpdate：组件数据更新完成时调用</span><br><span class="line"></span><br><span class="line">(3)销毁阶段：</span><br><span class="line"></span><br><span class="line">componentUnmount：销毁阶段。一般用来销毁不用的变量或者是解除无用定时器以及解绑无用事件。防止内存泄漏问题。</span><br><span class="line">运行阶段生命周期调用顺序</span><br><span class="line">componentWillReceiveProps–&gt;shouldComponentUpdate --&gt; componentWillupdate --&gt; componentDidUpdate</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">react生命周期中，最适合与服务端进行数据交互的是哪个函数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">componentDidMount：在这个阶段，实例和dom已经挂载完成，可以进行相关的dom操作。</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="6">
+<li><h2 id="作用域链和作用域"><a href="#作用域链和作用域" class="headerlink" title="作用域链和作用域"></a>作用域链和作用域</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的</span><br><span class="line">简单的说，作用域就是变量与函数的可访问范围，即作用域控制着变量与函数的可见性和生命周期</span><br><span class="line"></span><br><span class="line">扩展：JavaScript原型，原型链 ? 有什么特点？</span><br><span class="line">每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时</span><br><span class="line"></span><br><span class="line">如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念</span><br><span class="line"></span><br><span class="line">关系：instance.constructor.prototype &#x3D; instance.__proto__</span><br><span class="line"></span><br><span class="line">特点：</span><br><span class="line"></span><br><span class="line">JavaScript对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原型时，与之相关的对象也会继承这一改变</span><br><span class="line">当我们需要一个属性的时，Javascript引擎会先看当前对象中是否有这个属性， 如果没有的</span><br><span class="line"></span><br><span class="line">就会查找他的Prototype对象是否有这个属性，如此递推下去，一直检索到 Object 内建对象</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="7">
+<li><h2 id="react中状态提升："><a href="#react中状态提升：" class="headerlink" title="react中状态提升："></a>react中状态提升：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">主要解决是数据共享的问题：</span><br><span class="line">就是如果两个子组件需要利用到对方的状态的话，那么这个时候我们就需要使用到状态提升，具体的做法就是把两个子组件的状态写到它们的父组件当中，然后父组件把状态传递到子组件的props中去，这样子组件也相当于有状态。父组件相当于是数据源，这样的话，子组件是没有控制权的，</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="8">
+<li><h2 id="react中为什么要使用immutable"><a href="#react中为什么要使用immutable" class="headerlink" title="react中为什么要使用immutable"></a>react中为什么要使用immutable</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">因为在react中，react的生命周期中的setState()之后的shouldComponentUpdate()阶段默认返回true，所以会造成本组件和子组件的多余的render，重新生成virtual dom，并进行virtual dom diff，所以解决办法是我们在本组件或者子组件中的shouldComponentUpdate()函数中比较，当不需要render时，不render。</span><br><span class="line"></span><br><span class="line">当state中的值是对象时，我们必须使用深拷贝和深比较！</span><br><span class="line"></span><br><span class="line">如果不进行深拷贝后再setState，会造成this.state和nextState指向同一个引用，所以shouldComponentUpdate()返回值一定是false，造成state值改了，而组件未渲染（这里不管shouldComponentUpdate中使用的是深比较还是浅比较）。所以必须深拷贝。</span><br><span class="line"></span><br><span class="line">如果不在shouldComponentUpdate中进行深比较，会造成即使state中的对象值没有改变，因为是不同的对象，而在shouldComponentUpdate返回true，造成不必要的渲染。</span><br><span class="line"></span><br><span class="line">所以只能是深拷贝和深比较。</span><br><span class="line"></span><br><span class="line">而深拷贝和深比较都浪费浏览器的性能，所以immutable登场了。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">与React搭配使用，关键点是shouldComponentUpdate</span><br><span class="line">熟悉 React 的都知道，React 做性能优化时有一个避免重复渲染的大招，就是使用 shouldComponentUpdate()，但它默认返回 true，即始终会执行 render() 方法，然后做 Virtual DOM 比较，并得出是否需要做真实 DOM 更新，尽管React的虚拟算法复杂度已经有了很多优化，但是在大规模组件更新时，依然会是个不必要的损耗。会带来很多无必要的渲染并成为性能瓶颈。</span><br><span class="line">我们常用的Purecomponent的秘密其实是在shouldComponentUpdate中做了前后state和props的浅比较，如果不小心组件props的引用问题，这里会导致出现很多Bug。</span><br><span class="line">虽然第一层数据没变，但引用变了，就会造成虚拟 DOM 计算的浪费。</span><br><span class="line">第一层数据改变，但引用没变，会造成不渲染，所以需要很小心的操作数据。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Object.assign可以实现不可变数据,唯一的就是性能问题</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ol>
+<blockquote>
+<p>2020,7月1</p>
+</blockquote>
+<ol>
+<li><h2 id="hooks是什么"><a href="#hooks是什么" class="headerlink" title="hooks是什么"></a>hooks是什么</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">我们大部分 React 类组件可以保存状态，而函数组件不能？ 并且类组件具有生命周期，而函数组件却不能？</span><br><span class="line"></span><br><span class="line">React 早期版本，类组件可以通过继承PureComponent来优化一些不必要的渲染，相对于函数组件，React 官网没有提供对应的方法来缓存函数组件以减少一些不必要的渲染，直接 16.6 出来的 React.memo函数。</span><br><span class="line"></span><br><span class="line">React 16.8 新出来的Hook可以让React 函数组件具有状态，并提供类似 componentDidMount和componentDidUpdate等生命周期方法。</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><h2 id="context的用法"><a href="#context的用法" class="headerlink" title="context的用法"></a>context的用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">新版本的用法有点像react-redux，外层使用Provider包裹，然后在value处注入上下文环境，然后后代组件用Customer包裹，用来接收上下文</span><br><span class="line">import React, &#123; Component &#125; from &#39;react&#39;;</span><br><span class="line">const Test1Context &#x3D; React.createContext(&#123;</span><br><span class="line">    user:&#123;name:&quot;asdf&quot;&#125;,</span><br><span class="line">    text:&quot;asdfdsaf&quot;</span><br><span class="line">&#125;);</span><br><span class="line">class A extends React.Component &#123;</span><br><span class="line">    state &#x3D;&#123;</span><br><span class="line">      user: this.props.user，</span><br><span class="line">      text: &quot;item text&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        &lt;Test1Context.Provider value&#x3D;&#123;this.state&#125;&gt;</span><br><span class="line">            &lt;div&gt;&#123;this.props.children&#125;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;&#x2F;Test1Context.Provider&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">React.createContext()传入的东西用于设置默认值,也可以不传。</span><br><span class="line">这个包裹的Provider，要改成你定义的上下文名字+.Provider，这里我定义的上下文环境名字叫 Test1Context，所以我render里面包裹的是Test1Context.Provider。</span><br><span class="line">value里可以放任意的东西，比如放一个对象，放个数组，放个字符、数字，放个function，都ok。</span><br><span class="line">然后再是后代组件D</span><br><span class="line"></span><br><span class="line">class D extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    &lt;Test1Context.Consumer&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">              &#123;this.context.user.name&#125;</span><br><span class="line">              &#123;(value)&#x3D;&gt;&lt;div&gt;value.user.name&lt;&#x2F;div&gt;&#125;</span><br><span class="line">              &#123;(&#123;user&#125;)&#x3D;&gt;&lt;div&gt;user.name&lt;&#x2F;div&gt;&#125;</span><br><span class="line">        &lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;Test1Context.Consumer&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">D.contextType &#x3D; Test1Context ;</span><br><span class="line"></span><br><span class="line">(或者在D里面 static contextType &#x3D; Test1Context )</span><br><span class="line">可以在生命周期里面使用，官方文档是这样写的</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> class MyClass extends React.Component &#123;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    let value &#x3D; this.context;</span><br><span class="line">    &#x2F;* perform a side-effect at mount using the value of MyContext *&#x2F;</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidUpdate() &#123;</span><br><span class="line">    let value &#x3D; this.context;</span><br><span class="line">    &#x2F;* ... *&#x2F;</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUnmount() &#123;</span><br><span class="line">    let value &#x3D; this.context;</span><br><span class="line">    &#x2F;* ... *&#x2F;</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    let value &#x3D; this.context;</span><br><span class="line">    &#x2F;* render something based on the value of MyContext *&#x2F;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">MyClass.contextType &#x3D; MyContext;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+</li>
+</ol>
+<blockquote>
+<p>2020,7月6号</p>
+</blockquote>
+<ol>
+<li><p><strong>组件的拆分规则：</strong></p>
+<p>解耦：降低组件单一模块、组件复杂度</p>
+<p>复用：保证组件的一致性，提升开发效率</p>
+<p>组件颗粒度需要避免过大或者过小</p>
+</li>
+</ol>
+<ol start="2">
+<li><p><strong>react  ref  获取dom  和组件的相关值</strong></p>
+<p>Ref 转发是一项将 <a href="https://react.docschina.org/docs/refs-and-the-dom.html" target="_blank" rel="noopener">ref</a> 自动地通过组件传递到其一子组件的技巧；</p>
+<p>ref 是一个入口 允许您直接访问DOM元素或组件实例。为了使用它们，可以向组件添加一个ref属性，该属性的值是一个回调函数，它将接收底层的DOM元素或组件的已挂接实例作为其第一个参数。</p>
+</li>
+</ol>
+<ol start="3">
+<li><p><strong>shouldComponentUpdate 是做什么的，（react 性能优化是哪个周期函数？）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shouldComponentUpdate</span><br><span class="line">询问组件是否需要更新的一个钩子函数，判断数据是否需要重新渲染，返回一个布尔值。默认的返回值是true，需要重新render()。若如果返回值是false则不触发渲染,利用这个生命周期函数可以强制关闭不需要更新的子组件来提升渲染性能。</span><br><span class="line">这个方法用来判断是否需要调用 render 方法重新描绘 dom。</span><br><span class="line">因为 dom 的描绘非常消耗性能，如果我们能在 shouldComponentUpdate 方法中能够写出更优化的 dom diff 算法，可以极大的提高性能。</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p><strong>指出(组件)生命周期方法的不同</strong></p>
+<blockquote>
+<p>componentWillMount – 多用于根组件中的应用程序配置<br>componentDidMount – 在这可以完成所有没有 DOM 就不能做的所有配置，并开始获取所有你需要的数据；如果需要设置事件监听，也可以在这完成<br>componentWillReceiveProps – 这个周期函数作用于特定的 prop 改变导致的 state 转换<br>shouldComponentUpdate – 如果你担心组件过度渲染，shouldComponentUpdate 是一个改善性能的地方，因为如果组件接收了新的 prop， 它可以阻止(组件)重新渲染。shouldComponentUpdate 应该返回一个布尔值来决定组件是否要重新渲染<br>componentWillUpdate – 很少使用。它可以用于代替组件的 componentWillReceiveProps 和 shouldComponentUpdate(但不能访问之前的 props)<br>componentDidUpdate – 常用于更新 DOM，响应 prop 或 state 的改变<br>componentWillUnmount – 在这你可以取消网络请求，或者移除所有与组件相关的事件监听器</p>
+</blockquote>
+</li>
+</ol>
+<ol start="5">
+<li><p><strong>指出(组件)生命周期方法的不同</strong></p>
+<blockquote>
+<p>componentWillMount – 多用于根组件中的应用程序配置<br>componentDidMount – 在这可以完成所有没有 DOM 就不能做的所有配置，并开始获取所有你需要的数据；如果需要设置事件监听，也可以在这完成<br>componentWillReceiveProps – 这个周期函数作用于特定的 prop 改变导致的 state 转换<br>shouldComponentUpdate – 如果你担心组件过度渲染，shouldComponentUpdate 是一个改善性能的地方，因为如果组件接收了新的 prop， 它可以阻止(组件)重新渲染。shouldComponentUpdate 应该返回一个布尔值来决定组件是否要重新渲染<br>componentWillUpdate – 很少使用。它可以用于代替组件的 componentWillReceiveProps 和 shouldComponentUpdate(但不能访问之前的 props)<br>componentDidUpdate – 常用于更新 DOM，响应 prop 或 state 的改变<br>componentWillUnmount – 在这你可以取消网络请求，或者移除所有与组件相关的事件监听器</p>
+</blockquote>
+</li>
+<li><p><strong>react中key的作用</strong></p>
+<blockquote>
+<p>key是React中用于追踪哪些列表中元素被修改、删除或者被添加的辅助标识。在diff算法中，key用来判断该元素节点是被移动过来的还是新创建的元素，减少不必要的元素重复渲染。</p>
+</blockquote>
+</li>
+<li><p><strong>vue和react的区别</strong></p>
+<p>1、react严格上针对的是mvc模式的view层，vue则是mvvm模式。<br>2、操作dom的方式不同，vue使用的是指令操作dom，react是通过js进行操作。<br>3、数据绑定不同，vue实现的是双向绑定，react的数据流动是单向的。<br>4、react中state是不能直接改变的，需要使用setState改变。vue中的state不是必须的，数据主要是由data属性在vue对象中管理的。</p>
+</li>
+</ol>
+<ol start="8">
+<li><p><strong>react中组件传值</strong></p>
+<blockquote>
+<p>父传子（组件嵌套浅）：父组件定义一个属性，子组件通过this.props接收。<br>子传父：父组件定义一个属性，并将一个回调函数赋值给定义的属性，然后子组件进行调用传过来的函数，并将参数传进去，在父组件的回调函数中即可获得子组件传过来的值。</p>
+</blockquote>
+</li>
+<li><p><strong>react性能优化的方案</strong></p>
+<blockquote>
+<p>（1）重写shouldComponentUpdate来避免不必要的dom操作。<br>（2）使用 production 版本的react.js。<br>（3）使用key来帮助React识别列表中所有子组件的最小变化。</p>
+</blockquote>
+</li>
+<li><p><strong>应该在 React 组件的何处发起 Ajax 请求</strong></p>
+<p>在 React 组件中，应该在 <code>componentDidMount</code> 中发起网络请求。这个方法会在组件第一次“挂载”(被添加到 DOM)时执行，在组件的生命周期中仅会执行一次。更重要的是，你不能保证在组件挂载之前 Ajax 请求已经完成，如果是这样，也就意味着你将尝试在一个未挂载的组件上调用 setState，这将不起作用。在 <code>componentDidMount</code> 中发起网络请求将保证这有一个组件可以更新了。</p>
+</li>
+<li><p><strong>何为高阶组件(higher order component)</strong></p>
+<blockquote>
+<p>高阶组件是一个以组件为参数并返回一个新组件的函数。HOC 运行你重用代码、逻辑和引导抽象。最常见的可能是 Redux 的 <code>connect</code> 函数。除了简单分享工具库和简单的组合，HOC最好的方式是共享 React 组件之间的行为。如果你发现你在不同的地方写了大量代码来做同一件事时，就应该考虑将代码重构为可重用的 HOC。</p>
+</blockquote>
+</li>
+<li><p><strong>react diff 原理（常考，）</strong></p>
+<p>React Diff：</p>
+<p>之前说过，React采用虚拟DOM技术实现对真实DOM的映射，即React Diff算法的差异查找实质是对两个JavaScript对象的差异查找；<br>基于三个策略：<br>Web UI 中 DOM 节点跨层级的移动操作特别少，可以忽略不计。（tree diff）<br>拥有相同类的两个组件将会生成相似的树形结构，拥有不同类的两个组件将会生成不同的树形结（component diff）<br>对于同一层级的一组子节点，它们可以通过唯一 id 进行区分。（element diff）</p>
+<p>首先需要明确，只有在React更新阶段才会有Diff算法的运用；</p>
+</li>
+</ol>
+<ol start="13">
+<li><p><strong>为什么建议传递给 setState 的参数是一个 callback 而不是一个对象</strong></p>
+<blockquote>
+<p>因为 this.props 和 this.state 的更新可能是异步的，不能依赖它们的值去计算下一个 state</p>
+</blockquote>
+</li>
+<li><p><strong>(在构造函数中)调用 super(props) 的目的是什么</strong></p>
+<blockquote>
+<p>在 super() 被调用之前，子类是不能使用 this 的，在 ES2015 中，子类必须在 constructor 中调用 super()。传递 props 给 super() 的原因则是便于(在子类中)能在 constructor 访问 this.props。</p>
+</blockquote>
+</li>
+</ol>
+<ol start="15">
+<li><p><strong>.类组件(Class component)和函数式组件(Functional component)之间有何不同</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">类组件不仅允许你使用更多额外的功能，如组件自身的状态和生命周期钩子，也能使组件直接访问 store 并维持状态</span><br><span class="line">当组件仅是接收 props，并将组件自身渲染到页面时，该组件就是一个 ‘无状态组件(stateless component)’，可以使用一个纯函数来创建这样的组件。这种组件也被称为哑组件(dumb components)或展示组件</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="16">
+<li><p>redux中间件</p>
+<p><img src="http://jakeby.top/images/work/2.png" alt=""></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">不使用middleware时，在dispatch(action)时会执行rootReducer，并根据action的type更新返回相应的state。</span><br><span class="line">而在使用middleware时，简言之，middleware会将我们当前的action做相应的处理，随后再交付rootReducer执行。</span><br><span class="line"></span><br><span class="line">https:<span class="comment">//segmentfault.com/a/1190000018347235</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>redux有什么缺点 </p>
+<blockquote>
+<p>一个组件所需要的数据，必须由父组件传过来，而不能像flux中直接从store取。</p>
+<p>当一个组件相关数据更新时，即使父组件不需要用到这个组件，父组件还是会重新render，可能会有效率影响，或者需要写复杂的shouldComponentUpdate进行判断。</p>
+</blockquote>
+</li>
+<li><p>react性能优化的方案</p>
+</li>
+</ol>
+<h1 id="js相关："><a href="#js相关：" class="headerlink" title="js相关："></a>js相关：</h1><ol>
+<li><h2 id="闭包："><a href="#闭包：" class="headerlink" title="闭包："></a><strong>闭包：</strong></h2><p>简单来说，闭包就是一个定义在函数内部的函数。因为js中存在作用域的问题，所以在函数内部定义的变量在函数外部是没有办法直接获取到。而闭包就是沟通函数内部和外部的桥梁，这样在函数外部接可以得到函数内部的值。并且闭包可以实现函数属性和方法的私有化。会构成内存泄露等原因。影响性能。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">闭包的定义其实很简单：函数 A 内部有一个函数 B，函数 B 可以访问到函数 A 中的变量，那么函数 B 就是闭包</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line">  <span class="built_in">window</span>.B = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">A()</span><br><span class="line">B() <span class="comment">// 1</span></span><br><span class="line">闭包存在的意义就是让我们可以间接访问函数内部的变量</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;, i * <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">settime是一个异步函数，所以会输出一堆<span class="number">6</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">解决办法有三种</span><br><span class="line"></span><br><span class="line">第一种是使用闭包的方式</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(j)</span><br><span class="line">    &#125;, j * <span class="number">1000</span>)</span><br><span class="line">  &#125;)(i)</span><br><span class="line">&#125;</span><br><span class="line">在上述代码中，我们首先使用了立即执行函数将 i 传入函数内部，这个时候值就被固定在了参数 j 上面不会改变，当下次执行 timer 这个闭包的时候，就可以使用外部函数的变量 j，从而达到目的</span><br><span class="line"></span><br><span class="line">第二种就是使用 setTimeout 的第三个参数，这个参数会被当成 timer 函数的参数传入</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">  setTimeout(</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params">j</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(j)</span><br><span class="line">    &#125;,</span><br><span class="line">    i * <span class="number">1000</span>,</span><br><span class="line">    i</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">第三种就是使用 <span class="keyword">let</span> 定义 i 了来解决问题了，这个也是最为推荐的方式</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;, i * <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><h2 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a><strong>深浅拷贝</strong></h2><p><strong>浅拷贝</strong></p>
+<blockquote>
+<p>首先可以通过 <code>Object.assign</code> 来解决这个问题，很多人认为这个函数是用来深拷贝的。其实并不是，<code>Object.assign</code> 只会拷贝所有的属性值到新的对象中，如果属性值是对象的话，拷贝的是地址，所以并不是深拷贝</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  age: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">Object</span>.assign(&#123;&#125;, a)</span><br><span class="line">a.age = <span class="number">2</span></span><br><span class="line"><span class="built_in">console</span>.log(b.age) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>另外我们还可以通过展开运算符 <code>...</code> 来实现浅拷贝  … 就是去掉我们对象的外壳</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  age: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = &#123; ...a &#125;</span><br><span class="line">a.age = <span class="number">2</span></span><br><span class="line"><span class="built_in">console</span>.log(b.age) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通常浅拷贝就能解决大部分问题了，但是当我们遇到如下情况就可能需要使用到深拷贝了</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  age: <span class="number">1</span>,</span><br><span class="line">  jobs: &#123;</span><br><span class="line">    first: <span class="string">'FE'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = &#123; ...a &#125;</span><br><span class="line">a.jobs.first = <span class="string">'native'</span></span><br><span class="line"><span class="built_in">console</span>.log(b.jobs.first) <span class="comment">// native</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>浅拷贝只解决了第一层的问题，如果接下去的值中还有对象的话，那么就又回到最开始的话题了，两者享有相同的地址。要解决这个问题，我们就得使用深拷贝了。</p>
+</blockquote>
+<p><strong>深拷贝</strong></p>
+<blockquote>
+<p>这个问题通常可以通过 <code>JSON.parse(JSON.stringify(object))</code> 来解决。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  age: <span class="number">1</span>,</span><br><span class="line">  jobs: &#123;</span><br><span class="line">    first: <span class="string">'FE'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(a))</span><br><span class="line">a.jobs.first = <span class="string">'native'</span></span><br><span class="line"><span class="built_in">console</span>.log(b.jobs.first) <span class="comment">// FE</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>但是该方法也是有局限性的</strong>：</p>
+<ul>
+<li>会忽略 <code>undefined</code></li>
+<li>会忽略 <code>symbol</code></li>
+<li>不能序列化函数</li>
+<li>不能解决循环引用的对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: &#123;</span><br><span class="line">    c: <span class="number">2</span>,</span><br><span class="line">    d: <span class="number">3</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">obj.c = obj.b</span><br><span class="line">obj.e = obj.a</span><br><span class="line">obj.b.c = obj.c</span><br><span class="line">obj.b.d = obj.b</span><br><span class="line">obj.b.e = obj.b.c</span><br><span class="line"><span class="keyword">let</span> newObj = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj))</span><br><span class="line"><span class="built_in">console</span>.log(newObj)</span><br></pre></td></tr></table></figure>
+</li>
+<li><h2 id="存储相关"><a href="#存储相关" class="headerlink" title="存储相关"></a>存储相关</h2><p><strong>cookie，localStorage，sessionStorage，indexDB</strong></p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>cookie</th>
+<th>localStorage</th>
+<th>sessionStorage</th>
+<th>indexDB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据生命周期</td>
+<td>一般由服务器生成，可以设置过期时间</td>
+<td>除非被清理，否则一直存在</td>
+<td>页面关闭就清理</td>
+<td>除非被清理，否则一直存在</td>
+</tr>
+<tr>
+<td>数据存储大小</td>
+<td><code>4K</code></td>
+<td><code>5M</code></td>
+<td><code>5M</code></td>
+<td>无限</td>
+</tr>
+<tr>
+<td>与服务端通信</td>
+<td>每次都会携带在 <code>header</code> 中，对于请求性能影响</td>
+<td>不参与</td>
+<td>不参与</td>
+<td>不参与</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>从上表可以看到，<code>cookie</code> 已经不建议用于存储。如果没有大量数据存储需求的话，可以使用 <code>localStorage</code> 和 <code>sessionStorage</code> 。对于不怎么改变的数据尽量使用 <code>localStorage</code> 存储，否则可以用 <code>sessionStorage</code>存储</p>
+</blockquote>
+<p><strong>对于 cookie 来说，我们还需要注意安全性。</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>value</code></td>
+<td>如果用于保存用户登录态，应该将该值加密，不能使用明文的用户标识</td>
+</tr>
+<tr>
+<td><code>http-only</code></td>
+<td>不能通过 <code>JS</code> 访问 <code>Cookie</code>，减少 <code>XSS</code> 攻击</td>
+</tr>
+<tr>
+<td><code>secure</code></td>
+<td>只能在协议为 <code>HTTPS</code> 的请求中携带</td>
+</tr>
+<tr>
+<td><code>same-site</code></td>
+<td>规定浏览器不能在跨域请求中携带 <code>Cookie</code>，减少 <code>CSRF</code> 攻击</td>
+</tr>
+</tbody></table>
+<p><strong>Service Worker</strong></p>
+<ul>
+<li><code>Service Worker</code> 是运行在浏览器背后的独立线程，一般可以用来实现缓存功能。使用 <code>Service Worker</code>的话，传输协议必须为 <code>HTTPS</code>。因为 <code>Service Worker</code> 中涉及到请求拦截，所以必须使用 <code>HTTPS</code> 协议来保障安全</li>
+<li><code>Service Worker</code> 实现缓存功能一般分为三个步骤：首先需要先注册 <code>Service Worker</code>，然后监听到 <code>install</code> 事件以后就可以缓存需要的文件，那么在下次用户访问的时候就可以通过拦截请求的方式查询是否存在缓存，存在缓存的话就可以直接读取缓存文件，否则就去请求数据。以下是这个步骤的实现：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">if</span> (navigator.serviceWorker) &#123;</span><br><span class="line">  navigator.serviceWorker</span><br><span class="line">    .register(<span class="string">'sw.js'</span>)</span><br><span class="line">    .then(<span class="function"><span class="keyword">function</span>(<span class="params">registration</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'service worker 注册成功'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'servcie worker 注册失败'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// sw.js</span></span><br><span class="line"><span class="comment">// 监听 `install` 事件，回调中缓存所需文件</span></span><br><span class="line">self.addEventListener(<span class="string">'install'</span>, e =&gt; &#123;</span><br><span class="line">  e.waitUntil(</span><br><span class="line">    caches.open(<span class="string">'my-cache'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> cache.addAll([<span class="string">'./index.html'</span>, <span class="string">'./index.js'</span>])</span><br><span class="line">    &#125;)</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拦截所有请求事件</span></span><br><span class="line"><span class="comment">// 如果缓存中已经有请求的数据就直接用缓存，否则去请求数据</span></span><br><span class="line">self.addEventListener(<span class="string">'fetch'</span>, e =&gt; &#123;</span><br><span class="line">  e.respondWith(</span><br><span class="line">    caches.match(e.request).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (response) &#123;</span><br><span class="line">        <span class="keyword">return</span> response</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'fetch source'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>打开页面，可以在开发者工具中的 <code>Application</code> 看到 <code>Service Worker</code> 已经启动了</p>
+</blockquote>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/28/1626b1e8eba68e1c" alt="img"></p>
+<blockquote>
+<p>在 <code>Cache</code> 中也可以发现我们所需的文件已被缓存</p>
+</blockquote>
+<p><img src="https://user-gold-cdn.xitu.io/2018/3/28/1626b20dfc4fcd26" alt="img"></p>
+<blockquote>
+<p>当我们重新刷新页面可以发现我们缓存的数据是从 <code>Service Worker</code> 中读取的</p>
+</blockquote>
+</li>
+</ol>
+<ol>
+<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UnControlledForm</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  handleSubmit = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Input Value: "</span>, <span class="keyword">this</span>.input.value)</span><br><span class="line">  &#125;</span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;form onSubmit=&#123;<span class="keyword">this</span>.handleSubmit&#125;&gt;</span><br><span class="line">        &lt;input</span><br><span class="line">          type=<span class="string">'text'</span></span><br><span class="line">          ref=&#123;(input) =&gt; <span class="keyword">this</span>.input = input&#125; /&gt;</span><br><span class="line">        &lt;button type=<span class="string">'submit'</span>&gt;Submit&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>form&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p><strong>判断是数组</strong></p>
+<p>arr instanceof Array</p>
+<p>let arr = [];<br>console.log(arr instanceof Array); </p>
+<p>arr.constructor === Array</p>
+<p>Object的每个实例都有构造函数 constructor，用于保存着用于创建当前对象的函数</p>
+<p>Array 原型链上的 isPrototypeOf</p>
+</li>
+</ol>
+<ol start="3">
+<li><p><strong>let的和var的区别：</strong></p>
+<p>let声明的变量不会提升,并且会产生暂存死区。在let声明变量之前访问变量会抛出错误。</p>
+</li>
+<li><p><strong>forEach和map的区别</strong></p>
+<p>forEach()和map()两个方法都是ECMA5中Array引进的新方法</p>
+<p>forEach：返回值是undefined，不可以链式调用。</p>
+<p>map：返回一个新数组，原数组不会改变。</p>
+<p>相同点：</p>
+<p>1.都是循环遍历数组中的每一项</p>
+<p>2.每次执行匿名函数都支持三个参数，参数分别为item（当前每一项），index（索引值），arr（原数组）</p>
+<p>3.匿名函数中的this都是指向window</p>
+<p>4.只能遍历数组</p>
+<p><strong>map()适用于你要改变数据值的时候。不仅仅在于它更快，而且返回一个新的数组。</strong></p>
+</li>
+<li><p>发布订阅模式：</p>
+<p>发布—订阅模式又叫观察者模式，它定义了对象间的一种一对多的关系，让多个观察者对象同时监听某一个主题对象，当一个对象发生改变时，所有依赖于它的对象都将得到通知</p>
+<p>首先要想好谁是发布者(比如上面的卖家)。</p>
+<p>然后给发布者添加一个缓存列表，用于存放回调函数来通知订阅者(比如上面的买家收藏了卖家的店铺，卖家通过收藏了该店铺的一个列表名单)。</p>
+<p>最后就是发布消息，发布者遍历这个缓存列表，依次触发里面存放的订阅者回调函数。</p>
+</li>
+<li><p><strong>内存泄露：</strong></p>
+<ul>
+<li>console.log()</li>
+<li>闭包</li>
+<li><strong>dom泄露</strong>：浏览器中DOM和js采用的是不一样的引擎，DOM采用的是渲染引擎，而js采用的是v8引擎，所以在用js操作DOM时会比较耗费性能，因为他们需要桥来链接他们。为了减少DOM的操作，我们一般将常用的DOM。我们会采用变量引用的方式会将其缓存在当前环境。如果在进行一些删除、更新操作之后，可能会忘记释放已经缓存的DOM，</li>
+</ul>
+</li>
+<li><p><strong>Promise的原理：</strong></p>
+<p>首先promise是什么：Promise 是异步编程的一种解决方案，从语法上说，Promise 是一个对象，从它可以获取异步操作的消息，提供统一的api，各种异步操作都可以用同样的方法进行处理；</p>
+<p>Promise标准：</p>
+<p>​    promise当前的状态只能是pending，<code>fulfilled</code>（已成功）和<code>rejected</code>（已失败）三种之一</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/18/React%E5%9F%BA%E7%A1%80/" rel="next" title="React基础">
+                <i class="fa fa-chevron-left"></i> React基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/11/09/%E6%88%91%E7%9A%84%E7%94%9F%E6%B4%BB/" rel="prev" title="我的生活">
+                我的生活 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/head.jpg"
+                alt="Jakeby" />
+            
+              <p class="site-author-name" itemprop="name">Jakeby</p>
+              <p class="site-description motion-element" itemprop="description">永远年轻，永远热泪盈眶</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.weibo.com/5405097475/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.poco.cn/user/id200751015" target="_blank" title="摄影">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>摄影</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Jakeyhb" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="jakeby@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#react-相关"><span class="nav-number">1.</span> <span class="nav-text">react 相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#react中的生命周期："><span class="nav-number">1.1.</span> <span class="nav-text">react中的生命周期：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域链和作用域"><span class="nav-number">1.2.</span> <span class="nav-text">作用域链和作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react中状态提升："><span class="nav-number">1.3.</span> <span class="nav-text">react中状态提升：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react中为什么要使用immutable"><span class="nav-number">1.4.</span> <span class="nav-text">react中为什么要使用immutable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hooks是什么"><span class="nav-number">1.5.</span> <span class="nav-text">hooks是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#context的用法"><span class="nav-number">1.6.</span> <span class="nav-text">context的用法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#js相关："><span class="nav-number">2.</span> <span class="nav-text">js相关：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包："><span class="nav-number">2.1.</span> <span class="nav-text">闭包：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深浅拷贝"><span class="nav-number">2.2.</span> <span class="nav-text">深浅拷贝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储相关"><span class="nav-number">2.3.</span> <span class="nav-text">存储相关</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jakeby</span>
+
+  
+</div>
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
