@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2022-01-11T15:16:42.414Z</updated>
+  <updated>2023-08-16T17:14:34.681Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试</title>
+    <link href="http://yoursite.com/2023/08/17/%E9%9D%A2%E8%AF%95/"/>
+    <id>http://yoursite.com/2023/08/17/%E9%9D%A2%E8%AF%95/</id>
+    <published>2023-08-16T17:12:41.000Z</published>
+    <updated>2023-08-16T17:14:34.681Z</updated>
+    
+    
+    
+    
+    <category term="前端面试" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
+    
+    
+    <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>My 2021</title>
@@ -189,33 +206,6 @@
     
     
     <category term="前端开发" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-    
-    <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue面试</title>
-    <link href="http://yoursite.com/2020/05/16/%E9%9D%A2%E8%AF%95/"/>
-    <id>http://yoursite.com/2020/05/16/%E9%9D%A2%E8%AF%95/</id>
-    <published>2020-05-15T18:59:34.000Z</published>
-    <updated>2023-08-16T17:10:44.480Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="概述和脚手架"><a href="#概述和脚手架" class="headerlink" title="概述和脚手架"></a>概述和脚手架</h2><blockquote><p>前言：首先确保自己的开发环境，这里不再赘述。</p></blockquote><h3 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h3><ul><li>Vue.js 是目前最火的一个前端<strong>框架</strong>，React 是最流行的一个前端框架。</li><li>Vue.js 是前端的<strong>主流框架之一</strong>，和 Angular.js、React.js 一起，并成为前端三大主流框架！</li><li>Vue.js 是一套构建用户界面的框架，<strong>只关注视图层</strong>，它不仅易于上手，还便于与第三方库或既有项目整合。</li><li>Vue 核心的概念，就是让用户不再操作 DOM 元素，提高渲染效率，前端程序员只需要关心数据的业务逻辑，不再关系 DOM 是如何渲染的。</li></ul><p>Vue (读音 /vjuː/，类似于 <strong>view</strong>) 是一套用于构建用户界面的<strong>渐进式框架</strong>。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与<a href="https://cn.vuejs.org/v2/guide/single-file-components.html" target="_blank" rel="noopener">现代化的工具链</a>以及各种<a href="https://github.com/vuejs/awesome-vue#libraries--plugins" target="_blank" rel="noopener">支持类库</a>结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。</p><h3 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a>脚手架</h3><p>打开我们的终端工具，全局安装脚手架 ，以及创建第一个 vue 的项目</p><ol><li><p>@vue/cli 全局安装 也可以限制版本号； vue/cli@3</p><p>安装： npm install -g @vue/cli 也可以使用自己的安装方式 ：yarn…</p></li><li><p>使用 vue create “项目名称” 第一次我们可以选择默认的配置进行创建</p></li><li><p>创建完成后会出现一个文件夹 按照终端的提示进入创建的目录 在执行 npm run serve 出现以下提示</p><p><img src="/images/vueimg/1.jpg" alt="1"></p></li><li><p>我们在自己的浏览器中输入以上的地址就可以看到我们默认创建的第一个 vue 项目了<img src="/images/vueimg/vue2.png" alt=""></p></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;概述和脚手架&quot;&gt;&lt;a href=&quot;#概述和脚手架&quot; class=&quot;headerlink&quot; title=&quot;概述和脚手架&quot;&gt;&lt;/a&gt;概述和脚手架&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;前言：首先确保自己的开发环境，这里不再赘述。&lt;/p&gt;
-&lt;/blockquote&gt;
-</summary>
-      
-    
-    
-    
-    <category term="前端面试" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
     
     
     <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
