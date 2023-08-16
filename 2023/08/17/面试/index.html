@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="永远年轻，永远热泪盈眶">
+<meta name="description" content="Vue.js 高频面试题  什么是 Vue.js？答案： Vue.js 是一个渐进式 JavaScript 框架，用于构建用户界面。它专注于实现数据驱动的组件化架构，通过简单的 API 使构建交互式的 Web 应用变得更加容易。  Vue.js 中的双向数据绑定是如何实现的？答案： Vue.js 通过使用其核心库实现了双向数据绑定。它利用了 JavaScript 的 Object.definePr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试">
 <meta property="og:url" content="http://yoursite.com/2023/08/17/%E9%9D%A2%E8%AF%95/index.html">
 <meta property="og:site_name" content="Jakeby">
-<meta property="og:description" content="永远年轻，永远热泪盈眶">
+<meta property="og:description" content="Vue.js 高频面试题  什么是 Vue.js？答案： Vue.js 是一个渐进式 JavaScript 框架，用于构建用户界面。它专注于实现数据驱动的组件化架构，通过简单的 API 使构建交互式的 Web 应用变得更加容易。  Vue.js 中的双向数据绑定是如何实现的？答案： Vue.js 通过使用其核心库实现了双向数据绑定。它利用了 JavaScript 的 Object.definePr">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-16T17:12:41.000Z">
-<meta property="article:modified_time" content="2023-08-16T17:14:34.681Z">
+<meta property="article:modified_time" content="2023-08-16T17:25:35.987Z">
 <meta property="article:author" content="Jakeby">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
@@ -365,7 +365,31 @@
       
 
       
-        
+        <p>Vue.js 高频面试题</p>
+<ol>
+<li><p>什么是 Vue.js？<br>答案： Vue.js 是一个渐进式 JavaScript 框架，用于构建用户界面。它专注于实现数据驱动的组件化架构，通过简单的 API 使构建交互式的 Web 应用变得更加容易。</p>
+</li>
+<li><p>Vue.js 中的双向数据绑定是如何实现的？<br>答案： Vue.js 通过使用其核心库实现了双向数据绑定。它利用了 JavaScript 的 Object.defineProperty 方法来追踪属性的变化，并在数据变化时更新视图，同时在视图中的输入元素上监听用户的输入，将数据的变化反映回数据模型。</p>
+</li>
+<li><p>Vue.js 中的指令是什么？<br>答案： 指令是 Vue.js 提供的一种特殊属性，通过在 HTML 标签上添加前缀 v-来表示。它们用于实现 DOM 元素的动态行为和交互，例如 v-if、v-for、v-bind、v-on 等。</p>
+</li>
+<li><p>什么是 Vue 组件？如何定义一个组件？<br>答案： 组件是 Vue.js 应用中的可复用、独立的代码模块，具有自己的模板、逻辑和样式。组件通过 Vue.component 方法定义，或者使用单文件组件（以.vue 文件形式编写），包括模板、脚本和样式。</p>
+</li>
+<li><p>什么是 Vue 路由？<br>答案： Vue 路由是用于构建单页应用（SPA）的插件，允许在不同的 URL 之间切换，而不需要重新加载页面。它基于 Vue.js 提供了管理路由、视图映射以及路由切换的功能。</p>
+</li>
+<li><p>Vue 中的生命周期钩子有哪些？<br>答案： Vue 实例有多个生命周期钩子，包括 beforeCreate、created、beforeMount、mounted、beforeUpdate、updated、beforeDestroy 和 destroyed。这些钩子允许你在组件不同阶段执行自定义代码。</p>
+</li>
+<li><p>Vue 的计算属性和侦听器有什么区别？<br>答案： 计算属性是根据依赖的数据动态计算得出的属性，具有缓存机制。而侦听器是监听特定数据的变化，在数据变化时执行相应的回调函数。计算属性适用于对数据进行处理和衍生，而侦听器适用于对数据变化做出响应。</p>
+</li>
+<li><p>Vuex 是什么？它解决了什么问题？<br>答案： Vuex 是 Vue.js 的官方状态管理库，用于在大型应用中管理应用的状态（数据）。它解决了多个组件之间共享状态、数据流管理、状态变更的追踪与调试等问题。</p>
+</li>
+<li><p>Vue 中的动态组件是什么？<br>答案： 动态组件是指可以根据数据动态切换的组件。Vue 提供了<component>元素以及相应的 is 特性，允许根据数据来渲染不同的组件。</p>
+</li>
+<li><p>Vue 3 相对于 Vue 2 有哪些重要的改变？<br>答案： Vue 3 相对于 Vue 2 进行了一些重要的改变，包括：</p>
+</li>
+</ol>
+<p>更快的渲染性能和更小的包体积。<br>Composition API，提供更灵活的组合式逻辑复用。<br>更好的 TypeScript 支持。<br>更强大的响应式系统。<br>Teleport 组件，用于更精确地控制组件渲染的位置。<br>更好的 Tree Shaking 支持，减少无用代码的体积</p>
+
       
     </div>
     
