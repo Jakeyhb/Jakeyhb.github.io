@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2023-08-21T17:37:14.758Z</updated>
+  <updated>2023-08-21T17:45:11.189Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据可视化大屏项目</title>
+    <link href="http://yoursite.com/2023/08/22/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%A4%A7%E5%B1%8F%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://yoursite.com/2023/08/22/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%A4%A7%E5%B1%8F%E9%A1%B9%E7%9B%AE/</id>
+    <published>2023-08-21T17:44:41.000Z</published>
+    <updated>2023-08-21T17:45:11.189Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="DataV"><a href="#DataV" class="headerlink" title="DataV"></a>DataV</h2><p>DataV是一个基于Vue的数据可视化组件库，Vue数据可视化组件库（类似阿里DataV，大屏数据展示），提供SVG的边框及装饰、图表、水位图、飞线图等组件，简单易用，长期更新。</p><p><img src="https://cdn.nlark.com/yuque/0/2022/png/1500604/1660671923273-4a7155fd-5907-48d2-9c2e-54ec04013c54.png" alt="img"></p><p><strong>Github</strong>：<a href="https://github.com/DataV-Team/DataV" target="_blank" rel="noopener">https://github.com/DataV-Team/DataV</a></p><h2 id="DataV-React"><a href="#DataV-React" class="headerlink" title="DataV-React"></a>DataV-React</h2><p>DataV-React 是一个基于<strong>React</strong>的数据可视化组件库(类似阿里DataV，大屏数据展示），提供SVG的边框及装饰、图表、水位图、飞线图等组件，简单易用，长期更新。</p><p><img src="https://cdn.nlark.com/yuque/0/2022/png/1500604/1660672023603-1f39cde4-3c10-4066-aacb-dad3ad46c1c0.png" alt="img"></p><p><strong>Github</strong>：<a href="https://github.com/DataV-Team/DataV-React" target="_blank" rel="noopener">https://github.com/DataV-Team/DataV-React</a></p><h2 id="iDataV"><a href="#iDataV" class="headerlink" title="iDataV"></a>iDataV</h2><p>大屏数据可视化案例。包含了很多现成的模板，可在这些不同风格的模板基础上快速开始一个可视化大屏项目。</p><p><img src="https://cdn.nlark.com/yuque/0/2022/png/1500604/1660672175589-166430e4-bceb-4836-9179-423619ed0edc.png" alt="img"></p><p><strong>Github</strong>：<a href="https://github.com/yyhsong/iDataV" target="_blank" rel="noopener">https://github.com/yyhsong/iDataV</a></p><h2 id="DataEase"><a href="#DataEase" class="headerlink" title="DataEase"></a>DataEase</h2><p>DataEase 是开源的数据可视化分析工具，帮助用户快速分析数据并洞察业务趋势，从而实现业务的改进与优化。DataEase 支持丰富的数据源连接，能够通过拖拉拽方式快速制作图表，并可以方便的与他人分享。</p><p><img src="https://cdn.nlark.com/yuque/0/2022/png/1500604/1660672281042-9ba04119-d9b9-41c5-82ee-3a0a21d9245b.png" alt="img"></p><p><strong>Github</strong>：<a href="https://github.com/dataease/dataease" target="_blank" rel="noopener">https://github.com/dataease/dataease</a></p><h2 id="FlyFish"><a href="#FlyFish" class="headerlink" title="FlyFish"></a>FlyFish</h2><p>飞鱼（FlyFish）是一个数据可视化编码平台。通过简易的方式快速创建数据模型，通过拖拉拽的形式，快速生成一套数据可视化解决方案。</p><p><img src="https://cdn.nlark.com/yuque/0/2022/png/1500604/1660672328891-8813e8ee-a13d-4fb1-9efd-68ffb56d3d5d.png" alt="img"></p><p><strong>Github</strong>：<a href="https://github.com/CloudWise-OpenSource/FlyFish" target="_blank" rel="noopener">https://github.com/CloudWise-OpenSource/FlyFish</a></p><h2 id="GoView"><a href="#GoView" class="headerlink" title="GoView"></a>GoView</h2><p>GoView 是一个高效的拖拽式低代码数据可视化开发平台，将图表或页面元素封装为基础组件，无需编写代码即可制作数据大屏，减少心智负担。</p><p><img src="https://cdn.nlark.com/yuque/0/2022/png/1500604/1660672578323-e9e8e635-5959-4e27-8e19-9cd7a9713de5.png" alt="img"></p><p><strong>Gitee</strong>：<a href="https://gitee.com/MTrun/go-view" target="_blank" rel="noopener">https://gitee.com/MTrun/go-view</a></p><h2 id="vue-big-screen"><a href="#vue-big-screen" class="headerlink" title="vue-big-screen"></a>vue-big-screen</h2><p>一个基于 Vue、Datav、Echart 框架的 “ <strong>数据大屏项目</strong> “，通过 Vue 组件实现数据动态刷新渲染，内部图表可实现自由替换。部分图表使用 DataV 自带组件，可进行更改，</p><p><img src="https://cdn.nlark.com/yuque/0/2022/png/1500604/1660672557887-85eb9700-1943-4347-afa4-dc3039bf1623.png" alt="img"></p><p><strong>Gitee：</strong><a href="https://gitee.com/MTrun/big-screen-vue-datav" target="_blank" rel="noopener">https://gitee.com/MTrun/big-screen-vue-datav</a></p><h2 id="react-big-screen"><a href="#react-big-screen" class="headerlink" title="react-big-screen"></a>react-big-screen</h2><p>一个基于 React、Dva、DataV、ECharts 框架的 “ <strong>数据大屏项目</strong> “。支持数据动态刷新渲染、屏幕适配、数据请求模拟、局部样式、图表自由替换/复用等功能。</p><p><img src="https://cdn.nlark.com/yuque/0/2022/png/1500604/1660672637487-cbae8f03-a5af-43d6-8d15-e838f37151d0.png" alt="img"></p><p><strong>Gitee：</strong><a href="https://gitee.com/MTrun/react-big-screen" target="_blank" rel="noopener">https://gitee.com/MTrun/react-big-screen</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;DataV&quot;&gt;&lt;a href=&quot;#DataV&quot; class=&quot;headerlink&quot; title=&quot;DataV&quot;&gt;&lt;/a&gt;DataV&lt;/h2&gt;&lt;p&gt;DataV是一个基于Vue的数据可视化组件库，Vue数据可视化组件库（类似阿里DataV，大屏数据展示），提供SVG</summary>
+      
+    
+    
+    
+    
+    <category term="学习资源" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
   
   <entry>
     <title>面试</title>
