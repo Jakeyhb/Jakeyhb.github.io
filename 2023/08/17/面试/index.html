@@ -89,7 +89,7 @@
 <meta property="og:description" content="Vue.js 高频面试题 什么是 Vue.js？答案： Vue.js 是一个渐进式 JavaScript 框架，用于构建用户界面。它专注于实现数据驱动的组件化架构，通过简单的 API 使构建交互式的 Web 应用变得更加容易。  Vue.js 中的双向数据绑定是如何实现的？答案： Vue.js 通过使用其核心库实现了双向数据绑定。它利用了 JavaScript 的 Object.definePro">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-16T17:12:41.000Z">
-<meta property="article:modified_time" content="2023-08-16T17:29:25.989Z">
+<meta property="article:modified_time" content="2023-08-21T17:37:14.758Z">
 <meta property="article:author" content="Jakeby">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
@@ -392,30 +392,47 @@
 <li><p>解释 JavaScript 中的事件委托（Event Delegation）是什么？为什么它有用？<br>答案： 事件委托是一种通过将事件处理程序附加到其父元素而利用事件冒泡的机制来管理大量子元素的技术。这意味着当子元素触发事件时，事件会冒泡到父元素，从而执行单一的事件处理程序，这样可以减少事件处理程序的数量，提高性能，并且对于动态添加的子元素也能正常工作。</p>
 </li>
 <li><p>什么是闭包（Closure）？请举一个使用闭包的例子。<br>答案： 闭包是指函数能够访问其定义时的词法作用域，即使函数在其定义的作用域之外执行。这允许函数“记住”其创建时的环境。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outerFunction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">let</span> outerVar = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">innerFunction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(outerVar); <span class="comment">// 这里使用了闭包，可以访问 outerVar</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> innerFunction;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> closureExample = outerFunction();</span><br><span class="line">closureExample(); <span class="comment">// 输出：10</span></span><br></pre></td></tr></table></figure>
+
+
+
+
 </li>
 </ol>
-<p>javascript<br>Copy code<br>function outerFunction() {<br>let outerVar = 10;</p>
-<p>function innerFunction() {<br>console.log(outerVar); // 这里使用了闭包，可以访问 outerVar<br>}</p>
-<p>return innerFunction;<br>}</p>
-<p>const closureExample = outerFunction();<br>closureExample(); // 输出：10 3. 什么是原型链（Prototype Chain）？它是如何工作的？<br>答案： 原型链是 JavaScript 中对象之间的连接，每个对象都有一个指向其原型的链接。当访问对象的属性或方法时，如果对象本身没有找到，JavaScript 会在原型链上继续查找。这允许对象共享属性和方法，从而实现了继承。</p>
-<ol start="4">
+<ol start="3">
+<li><p>什么是原型链（Prototype Chain）？它是如何工作的？<br>答案： 原型链是 JavaScript 中对象之间的连接，每个对象都有一个指向其原型的链接。当访问对象的属性或方法时，如果对象本身没有找到，JavaScript 会在原型链上继续查找。这允许对象共享属性和方法，从而实现了继承。</p>
+</li>
 <li><p>解释同步（Synchronous）和异步（Asynchronous）的区别。<br>答案： 同步操作是指代码按顺序执行，每个操作必须在前一个操作完成之后才能开始。异步操作是指代码不按顺序执行，可以在其他操作运行时开始执行，通常与回调函数、Promise、async/await 等一起使用。</p>
 </li>
 <li><p>什么是回调地狱（Callback Hell）？如何避免它？<br>答案： 回调地狱是指在异步操作中，多次嵌套使用回调函数，导致代码可读性差、难以维护的情况。为了避免回调地狱，可以使用 Promise、async/await 等技术，将异步操作以更可读、线性的方式组织起来。</p>
 </li>
 <li><p>如何检查一个变量的数据类型？<br>答案： 使用 typeof 操作符可以检查一个变量的数据类型。然而，它在某些情况下可能返回不准确的结果，例如 typeof null 会返回”object”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="number">42</span>; <span class="comment">// "number"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">"hello"</span>; <span class="comment">// "string"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>; <span class="comment">// "boolean"</span></span><br><span class="line"><span class="keyword">typeof</span> []; <span class="comment">// "object"</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125;; <span class="comment">// "object"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>; <span class="comment">// "object"（注意这是个特例）</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>; <span class="comment">// "undefined"</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;; <span class="comment">// "function"</span></span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ol>
-<p>javascript<br>Copy code<br>typeof 42; // “number”<br>typeof “hello”; // “string”<br>typeof true; // “boolean”<br>typeof []; // “object”<br>typeof {}; // “object”<br>typeof null; // “object”（注意这是个特例）<br>typeof undefined; // “undefined”<br>typeof function() {}; // “function” 7. 解释什么是同源策略（Same-Origin Policy）？<br>答案： 同源策略是一种安全机制，它限制了来自不同源（域名、协议或端口）的网页对当前网页的访问。这是为了防止恶意代码通过访问其他域上的资源来窃取数据。</p>
-<ol start="8">
-<li>什么是箭头函数（Arrow Functions）？它们与普通函数有什么区别？<br>答案： 箭头函数是一种简化函数定义语法的方式，它没有自己的 this、arguments、super 或 new.target，它们会捕获在外围作用域中的这些值。箭头函数不能用作构造函数。</li>
+<ol start="7">
+<li><p>解释什么是同源策略（Same-Origin Policy）？<br>答案： 同源策略是一种安全机制，它限制了来自不同源（域名、协议或端口）的网页对当前网页的访问。这是为了防止恶意代码通过访问其他域上的资源来窃取数据。</p>
+</li>
+<li><p>什么是箭头函数（Arrow Functions）？它们与普通函数有什么区别？<br>答案： 箭头函数是一种简化函数定义语法的方式，它没有自己的 this、arguments、super 或 new.target，它们会捕获在外围作用域中的这些值。箭头函数不能用作构造函数。</p>
+</li>
 </ol>
-<p>javascript<br>Copy code<br>// 普通函数<br>function add(a, b) {<br>return a + b;<br>}</p>
-<p>// 箭头函数<br>const add = (a, b) =&gt; a + b; 9. 解释事件冒泡（Event Bubbling）和事件捕获（Event Capturing）。<br>答案： 事件冒泡是指当一个元素上的事件被触发时，它会从最深的嵌套元素开始冒泡至最外层的元素。事件捕获是指相反的过程，事件从最外层元素开始捕获直到最深的嵌套元素。在大多数情况下，浏览器默认使用事件冒泡。</p>
-<ol start="10">
-<li>解释什么是 Hoisting（变量提升）？<br>答案： Hoisting 是指在 JavaScript 中，变量和函数声明会被提升到作用域的顶部，但实际的赋值操作不会被提升。这意味着在变量被声明之前就使用它，会得到 undefined，而不会报错。</li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数</span></span><br><span class="line"><span class="keyword">const</span> add = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<ol start="9">
+<li><p>解释事件冒泡（Event Bubbling）和事件捕获（Event Capturing）。<br>答案： 事件冒泡是指当一个元素上的事件被触发时，它会从最深的嵌套元素开始冒泡至最外层的元素。事件捕获是指相反的过程，事件从最外层元素开始捕获直到最深的嵌套元素。在大多数情况下，浏览器默认使用事件冒泡。</p>
+</li>
+<li><p>解释什么是 Hoisting（变量提升）？<br>答案： Hoisting 是指在 JavaScript 中，变量和函数声明会被提升到作用域的顶部，但实际的赋值操作不会被提升。这意味着在变量被声明之前就使用它，会得到 undefined，而不会报错。</p>
+</li>
 </ol>
-<p>javascript<br>Copy code<br>console.log(a); // 输出：undefined<br>var a = 10;<br>以</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 输出：undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+
 
       
     </div>
